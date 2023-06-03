@@ -16,7 +16,8 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <h1>chirp</h1>
-      {!user ? <SignInButton /> : <SignOutButton />}
+      {!user.isSignedIn && <SignInButton />}
+      {!!user.isSignedIn && <SignOutButton />}
       <div>
         {data?.map((post) => (
           <div key={post.id}>{post.content}</div>
